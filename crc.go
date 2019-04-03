@@ -9,7 +9,7 @@
 //
 // This package has been largely inspired by Ross Williams' 1993 paper "A Painless Guide to CRC Error Detection Algorithms".
 // A good list of parameter sets for various CRC algorithms can be found at http://reveng.sourceforge.net/crc-catalogue/.
-package feutil
+package sutil
 
 // Parameters represents set of parameters defining a particular CRC algorithm.
 type Parameters struct {

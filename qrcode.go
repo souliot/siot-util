@@ -1,7 +1,6 @@
-package feutil
+package sutil
 
 import (
-	"github.com/astaxie/beego"
 	qrcode "github.com/skip2/go-qrcode"
 
 	"bytes"
@@ -17,17 +16,20 @@ func GetQrByte(chd string, chs int, qrType int) (file []byte) {
 	} else if qrType == 2 {
 		code, err := qr.Encode(chd, qr.L, qr.Unicode)
 		if err != nil {
-			beego.Info(err)
+			// beego.Info(err)
+			return
 		}
 		// beego.Info("Encoded data: ", code.Content())
 
 		if chd != code.Content() {
-			beego.Info("data differs")
+			// beego.Info("data differs")
+			return
 		}
 
 		code, err = barcode.Scale(code, chs, chs)
 		if err != nil {
-			beego.Info(err)
+			// beego.Info(err)
+			return
 		}
 
 		encoder := png.Encoder{CompressionLevel: png.BestCompression}
@@ -36,7 +38,8 @@ func GetQrByte(chd string, chs int, qrType int) (file []byte) {
 		err = encoder.Encode(&b, code)
 
 		if err != nil {
-			beego.Info(err)
+			// beego.Info(err)
+			return
 		}
 
 		file = b.Bytes()

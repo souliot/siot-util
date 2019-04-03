@@ -1,9 +1,7 @@
-package feutil
+package sutil
 
 import (
 	"net/url"
-
-	"github.com/souliot/feutil"
 )
 
 func gohttp_test() string {
@@ -19,6 +17,6 @@ func gohttp_test() string {
 		"X-Access-Token": {"81EGSR7ptRYyEsoCIZw5yC8hyRKR68oW"},
 		"Content-Type":   {mime},
 	}
-	str := feutil.HttpDo("GET", uri, param.Encode(), header)
+	str := HttpDo("GET", uri, param.Encode(), header)
 	return str
 }

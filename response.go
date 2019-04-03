@@ -1,4 +1,4 @@
-package feutil
+package sutil
 
 type ControllerError struct {
 	Status   int    `json:"status"`

@@ -1,11 +1,9 @@
-package feutil
+package sutil
 
 import (
 	"io/ioutil"
 	"net/http"
 	"strings"
-
-	"github.com/astaxie/beego"
 )
 
 func HttpDo(method string, uri string, param string, header http.Header) string {
@@ -14,7 +12,7 @@ func HttpDo(method string, uri string, param string, header http.Header) string 
 	req, err := http.NewRequest(method, uri, strings.NewReader(param))
 	if err != nil {
 		// handle error
-		beego.Error(err)
+		// beego.Error(err)
 		return ""
 	}
 
@@ -32,7 +30,7 @@ func HttpDo(method string, uri string, param string, header http.Header) string 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		// handle error
-		beego.Error(err)
+		// beego.Error(err)
 		return ""
 	}
 
