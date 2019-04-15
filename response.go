@@ -35,5 +35,5 @@ var (
 	ErrPermission = &ControllerError{400, 10013, "没有权限", "没有操作权限", ""}
 	Actionsuccess = &ControllerError{200, 90000, "操作成功", "操作成功", ""}
 
-	ErrDeviceQrAdd = &ControllerError{400, 20000, "添加失败", "设备未在线或已被别的用户管理！", ""}
+	ErrDeviceQrAdd = &ControllerError{400, 20000, "添加失败", "设备二维码无效或已被别的用户管理！", ""}
 )
