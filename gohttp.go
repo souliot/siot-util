@@ -11,7 +11,7 @@ import (
 func HttpDo(method string, uri string, param string, header http.Header) string {
 	client := &http.Client{}
 	var data io.Reader
-	if header["Content-Type"] == "application/json" {
+	if header.Get("Content-Type") == "application/json" {
 		json := []byte(param)
 		data = bytes.NewBuffer(json)
 	} else {
