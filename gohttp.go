@@ -1,6 +1,8 @@
 package sutil
 
 import (
+	"bytes"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"strings"
@@ -8,8 +10,15 @@ import (
 
 func HttpDo(method string, uri string, param string, header http.Header) string {
 	client := &http.Client{}
+	var data io.Reader
+	if header["Content-Type"] == "application/json" {
+		json := []byte(param)
+		data = bytes.NewBuffer(json)
+	} else {
+		data = strings.NewReader(param)
+	}
 
-	req, err := http.NewRequest(method, uri, strings.NewReader(param))
+	req, err := http.NewRequest(method, uri, data)
 	if err != nil {
 		// handle error
 		// beego.Error(err)
