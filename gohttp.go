@@ -1,15 +1,15 @@
 package sutil
 
 import (
+	"bytes"
 	"io/ioutil"
 	"net/http"
-	"strings"
 )
 
 func HttpDo(method string, uri string, param string, header http.Header) string {
 	client := &http.Client{}
 
-	req, err := http.NewRequest(method, uri, strings.NewReader(param))
+	req, err := http.NewRequest(method, uri, bytes.NewReader([]byte(param)))
 	if err != nil {
 		// handle error
 		// beego.Error(err)
