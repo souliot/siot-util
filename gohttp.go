@@ -6,16 +6,15 @@ import (
 	"net/http"
 )
 
-func HttpDo(method string, uri string, data string, header http.Header) string {
+func HttpDo(method string, uri string, header http.Header, data string, params string) string {
 	client := &http.Client{}
 
 	req_data := bytes.NewBuffer([]byte(data))
 
 	req, err := http.NewRequest(method, uri, req_data)
 
-	if method == "GET" {
-		req.URL.RawQuery = data
-	}
+	req.URL.RawQuery = params
+
 	if err != nil {
 		return ""
 	}
