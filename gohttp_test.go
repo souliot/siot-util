@@ -5,18 +5,28 @@ import (
 )
 
 func gohttp_test() string {
-	uri := "http://openapi.ecois.info/v2/poi/detail?id=2"
+	uri := "http://example.com/path"
+
+	// GET
 	var param = url.Values{}
-	// param.Add("regcode", "yuandong_meter")
-	// param.Add("data", string(json_nodeRealTimeDatas))
-	// param.Add("type", "3")
-	// mime := "application/json; charset=utf-8"
-	mime := "application/x-www-form-urlencoded"
-	// beego.Info(string(json_nodeRealTimeDatas))
+	param.Add("page", "1")
+	param.Add("pageSize", "2")
+	data := param.Encode()
+
+	// POST
+	// m := map[string]interface{}{
+	// 	"page":     1,
+	// 	"pageSize": 2,
+	// }
+	// mjson, _ := json.Marshal(m)
+	// data := string(mjson)
+
+	mime := "application/json"
+
 	header := map[string][]string{
-		"X-Access-Token": {"81EGSR7ptRYyEsoCIZw5yC8hyRKR68oW"},
+		"X-Access-Token": {"UlRZ2SSToJ0fcaoeaJSA8g=="},
 		"Content-Type":   {mime},
 	}
-	str := HttpDo("GET", uri, param.Encode(), header)
+	str := HttpDo("GET", uri, data, header)
 	return str
 }
