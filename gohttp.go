@@ -21,6 +21,10 @@ func HttpDo(method string, uri string, header http.Header, data string, params s
 
 	req.Header = header
 
+	if header.Get("Host") != "" {
+		req.Host = header.Get("Host")
+	}
+
 	resp, err := client.Do(req)
 	if err != nil {
 		return ""
