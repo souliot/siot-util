@@ -59,7 +59,7 @@ var (
 	ErrExpired      = &ControllerError{400, 10012, "登录已过期", "验证token过期", ""}
 	ErrPermission   = &ControllerError{400, 10013, "没有权限", "没有操作权限", ""}
 	ErrInputData    = &ControllerError{400, 20001, "数据输入错误", "客户端参数错误", ""}
-	ErrVersionCheck = &ControllerError{400, 20002, "数据输入错误", "版本检查错误", ""}
+	ErrVersionCheck = &ControllerError{400, 20002, "版本检查", "当前版本过低", ""}
 )
 
 var (
