@@ -24,11 +24,12 @@ const (
 
 const (
 	StatusSuccess         = 200
+	StatusTypeErrUser     = 400
 	StatusTypeErrSystem   = 500
 	StatusTypeErrDatabase = 600
 	StatusTypeErrMq       = 700
 	StatusTypeErrCache    = 800
-	StatusTypeErrUser     = 400
+	StatusTypeErrEtcd     = 900
 )
 
 var (
@@ -68,4 +69,11 @@ var (
 	ErrWriteFile    = &ControllerError{500, 10010, "服务器错误", "写文件出错", ""}
 	ErrSystem       = &ControllerError{500, 10011, "服务器错误", "操作系统错误", ""}
 	ErrTransferData = &ControllerError{500, 20001, "数据转换错误", "Json 字符串转 Map 错误", ""}
+)
+var (
+	ErrEtcdClient = &ControllerError{900, 10001, "Etcd错误", "获取etcd连接错误！", ""}
+	ErrEtcdPut    = &ControllerError{900, 10002, "Etcd错误", "etcd put 错误！", ""}
+	ErrEtcdGet    = &ControllerError{900, 10003, "Etcd错误", "etcd get 错误！", ""}
+	ErrEtcdDelete = &ControllerError{900, 10004, "Etcd错误", "etcd delete 错误！", ""}
+	ErrEtcdWatch  = &ControllerError{900, 10005, "Etcd错误", "etcd watch 错误！", ""}
 )
