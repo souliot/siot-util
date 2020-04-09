@@ -37,17 +37,6 @@ var (
 )
 
 var (
-	ErrDb                  = &ControllerError{600, 10001, "数据库错误", "数据库操作错误", ""}
-	ErrDupRecord           = &ControllerError{600, 10002, "数据库错误", "数据库记录重复", ""}
-	ErrNoRecord            = &ControllerError{600, 10003, "数据库错误", "数据库记录不存在", ""}
-	ErrUserPass            = &ControllerError{600, 10004, "数据库错误", "用户名或密码不正确", ""}
-	ErrDbInsert            = &ControllerError{600, 10005, "数据库错误", "数据添加错误", ""}
-	ErrDbUpdate            = &ControllerError{600, 10006, "数据库错误", "数据更新错误", ""}
-	ErrDbDelete            = &ControllerError{600, 10007, "数据库错误", "数据删除错误", ""}
-	ErrChangeAccountStatus = &ControllerError{600, 10008, "数据库错误", "更新账户状态错误", ""}
-)
-
-var (
 	Err404          = &ControllerError{400, 404, "page not found", "page not found", ""}
 	ErrUserExist    = &ControllerError{400, 10001, "用户操作错误", "用户账户已存在", ""}
 	ErrUserInput    = &ControllerError{400, 10002, "用户操作错误", "用户输入参数错误", ""}
@@ -70,6 +59,25 @@ var (
 	ErrSystem       = &ControllerError{500, 10011, "服务器错误", "操作系统错误", ""}
 	ErrTransferData = &ControllerError{500, 20001, "数据转换错误", "Json 字符串转 Map 错误", ""}
 )
+
+var (
+	ErrDb                  = &ControllerError{600, 10001, "数据库错误", "数据库操作错误", ""}
+	ErrDupRecord           = &ControllerError{600, 10002, "数据库错误", "数据库记录重复", ""}
+	ErrNoRecord            = &ControllerError{600, 10003, "数据库错误", "数据库记录不存在", ""}
+	ErrUserPass            = &ControllerError{600, 10004, "数据库错误", "用户名或密码不正确", ""}
+	ErrDbInsert            = &ControllerError{600, 10005, "数据库错误", "数据添加错误", ""}
+	ErrDbUpdate            = &ControllerError{600, 10006, "数据库错误", "数据更新错误", ""}
+	ErrDbDelete            = &ControllerError{600, 10007, "数据库错误", "数据删除错误", ""}
+	ErrChangeAccountStatus = &ControllerError{600, 10008, "数据库错误", "更新账户状态错误", ""}
+)
+
+var (
+	ErrFileUpload   = &ControllerError{700, 10001, "文件系统错误", "文件上传错误！", ""}
+	ErrFileDownload = &ControllerError{700, 10001, "文件系统错误", "文件下载错误！", ""}
+	ErrFileDelete   = &ControllerError{700, 10001, "文件系统错误", "文件删除错误！", ""}
+	ErrFileList     = &ControllerError{700, 10001, "文件系统错误", "获取文件列表错误！", ""}
+)
+
 var (
 	ErrEtcdClient = &ControllerError{900, 10001, "Etcd错误", "获取etcd连接错误！", ""}
 	ErrEtcdPut    = &ControllerError{900, 10002, "Etcd错误", "etcd put 错误！", ""}
