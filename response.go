@@ -53,11 +53,11 @@ var (
 )
 
 var (
-	ErrOpenFile     = &ControllerError{500, 10009, "服务器错误", "打开文件出错", ""}
-	Err500          = &ControllerError{500, 10001, "服务器错误", "接口访问出错，请确认参数正确！", ""}
-	ErrWriteFile    = &ControllerError{500, 10010, "服务器错误", "写文件出错", ""}
-	ErrSystem       = &ControllerError{500, 10011, "服务器错误", "操作系统错误", ""}
-	ErrTransferData = &ControllerError{500, 20001, "数据转换错误", "Json 字符串转 Map 错误", ""}
+	ErrOpenFile     = &ControllerError{500, 10001, "服务器错误", "打开文件出错", ""}
+	Err500          = &ControllerError{500, 10002, "服务器错误", "接口访问出错，请确认参数正确！", ""}
+	ErrWriteFile    = &ControllerError{500, 10003, "服务器错误", "写文件出错", ""}
+	ErrSystem       = &ControllerError{500, 10004, "服务器错误", "操作系统错误", ""}
+	ErrTransferData = &ControllerError{500, 10005, "数据转换错误", "Json 字符串转 Map 错误", ""}
 )
 
 var (
@@ -66,16 +66,18 @@ var (
 	ErrNoRecord            = &ControllerError{600, 10003, "数据库错误", "数据库记录不存在", ""}
 	ErrUserPass            = &ControllerError{600, 10004, "数据库错误", "用户名或密码不正确", ""}
 	ErrDbInsert            = &ControllerError{600, 10005, "数据库错误", "数据添加错误", ""}
-	ErrDbUpdate            = &ControllerError{600, 10006, "数据库错误", "数据更新错误", ""}
-	ErrDbDelete            = &ControllerError{600, 10007, "数据库错误", "数据删除错误", ""}
-	ErrChangeAccountStatus = &ControllerError{600, 10008, "数据库错误", "更新账户状态错误", ""}
+	ErrDbRead              = &ControllerError{600, 10006, "数据库错误", "数据读取错误", ""}
+	ErrDbUpdate            = &ControllerError{600, 10007, "数据库错误", "数据更新错误", ""}
+	ErrDbDelete            = &ControllerError{600, 10008, "数据库错误", "数据删除错误", ""}
+	ErrChangeAccountStatus = &ControllerError{600, 10009, "数据库错误", "更新账户状态错误", ""}
 )
 
 var (
-	ErrFileUpload   = &ControllerError{700, 10001, "文件系统错误", "文件上传错误！", ""}
-	ErrFileDownload = &ControllerError{700, 10001, "文件系统错误", "文件下载错误！", ""}
-	ErrFileDelete   = &ControllerError{700, 10001, "文件系统错误", "文件删除错误！", ""}
-	ErrFileList     = &ControllerError{700, 10001, "文件系统错误", "获取文件列表错误！", ""}
+	ErrFileExist    = &ControllerError{700, 10001, "文件系统错误", "文件已存在！", ""}
+	ErrFileUpload   = &ControllerError{700, 10002, "文件系统错误", "文件上传错误！", ""}
+	ErrFileDownload = &ControllerError{700, 10003, "文件系统错误", "文件下载错误！", ""}
+	ErrFileDelete   = &ControllerError{700, 10004, "文件系统错误", "文件删除错误！", ""}
+	ErrFileList     = &ControllerError{700, 10005, "文件系统错误", "获取文件列表错误！", ""}
 )
 
 var (
