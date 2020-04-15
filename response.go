@@ -54,7 +54,7 @@ var (
 
 var (
 	ErrOpenFile     = &ControllerError{500, 10001, "服务器错误", "打开文件出错", ""}
-	Err500          = &ControllerError{500, 10002, "服务器错误", "接口访问出错，请确认参数正确！", ""}
+	Err500          = &ControllerError{500, 10002, "服务器错误", "接口访问出错", ""}
 	ErrWriteFile    = &ControllerError{500, 10003, "服务器错误", "写文件出错", ""}
 	ErrSystem       = &ControllerError{500, 10004, "服务器错误", "操作系统错误", ""}
 	ErrTransferData = &ControllerError{500, 10005, "数据转换错误", "Json 字符串转 Map 错误", ""}
@@ -73,6 +73,7 @@ var (
 )
 
 var (
+	ErrFileSystem   = &ControllerError{700, 10000, "文件系统错误", "文件系统连接错误！", ""}
 	ErrFileExist    = &ControllerError{700, 10001, "文件系统错误", "文件已存在！", ""}
 	ErrFileUpload   = &ControllerError{700, 10002, "文件系统错误", "文件上传错误！", ""}
 	ErrFileDownload = &ControllerError{700, 10003, "文件系统错误", "文件下载错误！", ""}
