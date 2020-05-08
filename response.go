@@ -75,10 +75,11 @@ var (
 var (
 	ErrFileSystem   = &ControllerError{700, 10000, "文件系统错误", "文件系统连接错误！", ""}
 	ErrFileExist    = &ControllerError{700, 10001, "文件系统错误", "文件已存在！", ""}
-	ErrFileUpload   = &ControllerError{700, 10002, "文件系统错误", "文件上传错误！", ""}
-	ErrFileDownload = &ControllerError{700, 10003, "文件系统错误", "文件下载错误！", ""}
-	ErrFileDelete   = &ControllerError{700, 10004, "文件系统错误", "文件删除错误！", ""}
-	ErrFileList     = &ControllerError{700, 10005, "文件系统错误", "获取文件列表错误！", ""}
+	ErrFileNonExist = &ControllerError{700, 10002, "文件系统错误", "文件不存在！", ""}
+	ErrFileUpload   = &ControllerError{700, 10003, "文件系统错误", "文件上传错误！", ""}
+	ErrFileDownload = &ControllerError{700, 10004, "文件系统错误", "文件下载错误！", ""}
+	ErrFileDelete   = &ControllerError{700, 10005, "文件系统错误", "文件删除错误！", ""}
+	ErrFileList     = &ControllerError{700, 10006, "文件系统错误", "获取文件列表错误！", ""}
 )
 
 var (
