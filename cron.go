@@ -2,6 +2,7 @@ package sutil
 
 import (
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 	"github.com/robfig/cron/v3"
 )
 
@@ -48,6 +49,12 @@ func start() {
 func StopCrons() {
 	beego.Info("**********关闭定时任务**********")
 	c.Stop()
+}
+
+func ResetCrons() {
+	logs.Info("**********清理重置定时任务**********")
+	c.Stop()
+	c = cron.New()
 }
 
 func AddCron(spec string, fn func()) {
