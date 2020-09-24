@@ -80,6 +80,7 @@ var (
 	ErrFileDownload = &ControllerError{700, 10004, "文件系统错误", "文件下载错误！", ""}
 	ErrFileDelete   = &ControllerError{700, 10005, "文件系统错误", "文件删除错误！", ""}
 	ErrFileList     = &ControllerError{700, 10006, "文件系统错误", "获取文件列表错误！", ""}
+	ErrFileCopy     = &ControllerError{700, 10007, "文件系统错误", "文件转存错误！", ""}
 )
 
 var (
