@@ -92,3 +92,7 @@ var (
 	ErrEtcdDelete = &ControllerError{900, 10004, "Etcd错误", "etcd delete 错误！", ""}
 	ErrEtcdWatch  = &ControllerError{900, 10005, "Etcd错误", "etcd watch 错误！", ""}
 )
+
+var (
+	ErrProxyInput = &ControllerError{1000, 10001, "网关代理错误", "无效的代理地址！", ""}
+)
