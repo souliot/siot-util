@@ -37,6 +37,10 @@ var (
 )
 
 var (
+	ErrTokenInValid = &ControllerError{300, 10001, "Token 认证错误", "验证 token 无效或已过期", ""}
+)
+
+var (
 	Err404          = &ControllerError{400, 404, "page not found", "page not found", ""}
 	ErrUserExist    = &ControllerError{400, 10001, "用户操作错误", "用户账户已存在", ""}
 	ErrUserInput    = &ControllerError{400, 10002, "用户操作错误", "用户输入参数错误", ""}
@@ -48,6 +52,7 @@ var (
 	ErrAppid        = &ControllerError{400, 10011, "用户认证错误", "无效的Appid或Secret", ""}
 	ErrExpired      = &ControllerError{400, 10012, "登录已过期", "验证token过期", ""}
 	ErrPermission   = &ControllerError{400, 10013, "没有权限", "没有操作权限", ""}
+	ErrUserLogin    = &ControllerError{400, 10014, "用户未登录", "用户账户未登录", ""}
 	ErrInputData    = &ControllerError{400, 20001, "数据输入错误", "客户端参数错误", ""}
 	ErrVersionCheck = &ControllerError{400, 20002, "版本检查", "当前版本过低", ""}
 )

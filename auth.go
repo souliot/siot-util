@@ -48,6 +48,24 @@ func To_md5(encode string) (decode string) {
 	return string(base64Encode(cipherStr))
 }
 
+func CreateTokenWithExp(appid string, secret string, expireToken int64) (string, int64) {
+	claims := Claims{
+		appid,
+		jwt.StandardClaims{
+			ExpiresAt: expireToken,
+			Issuer:    appid,
+		},
+	}
+
+	// Create the token using your claims
+	c_token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+
+	// Signs the token with a secret.
+	signedToken, _ := c_token.SignedString([]byte(secret))
+
+	return signedToken, expireToken
+}
+
 func Create_token(appid string, secret string, exp int64) (string, int64) {
 	expireToken := time.Now().Add(time.Hour * time.Duration(exp)).Unix()
 	claims := Claims{
@@ -71,6 +89,9 @@ func Token_auth(signedToken, secret string) (string, error) {
 	token, err := jwt.ParseWithClaims(signedToken, &Claims{}, func(token *jwt.Token) (interface{}, error) {
 		return []byte(secret), nil
 	})
+	if err != nil {
+		return "", err
+	}
 	if claims, ok := token.Claims.(*Claims); ok && token.Valid {
 		//fmt.Printf("%v %v", claims.Username, claims.StandardClaims.ExpiresAt)
 		//fmt.Println(reflect.TypeOf(claims.StandardClaims.ExpiresAt))
