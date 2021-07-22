@@ -10,19 +10,16 @@ import (
 func DecodeWeAppUserInfo(encryptedData string, sessionKey string, iv string) (string, error) {
 	cipher, err := base64.StdEncoding.DecodeString(encryptedData)
 	if err != nil {
-		// beego.Error("encryptedData: ", encryptedData, "\n", err)
 		return "", err
 	}
 
 	key, keyErr := base64.StdEncoding.DecodeString(sessionKey)
 	if keyErr != nil {
-		// beego.Error("sessionKey: ", sessionKey, "\n", keyErr)
 		return "", keyErr
 	}
 
 	theIV, ivErr := base64.StdEncoding.DecodeString(iv)
 	if ivErr != nil {
-		// beego.Error("iv: ", iv, "\n", ivErr)
 		return "", ivErr
 	}
 

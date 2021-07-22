@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 	"testing"
 	"time"
-
-	"github.com/astaxie/beego"
 )
 
 const (
@@ -19,16 +17,16 @@ type User struct {
 }
 
 func TestAppId(t *testing.T) {
-	beego.Info(To_md5(time.Now().Format(FormatTime)))
-	beego.Info(To_md5(time.Now().Format(FormatDate)))
-	beego.Info(To_md5(time.Now().Format(FormatDateTime)))
-	beego.Info(To_md5("测试" + time.Now().Format(FormatDateTime)))
-	beego.Info(To_md5(time.Now().Format(FormatDateTime)))
-	beego.Info(To_md5(time.Now().Format(FormatDateTime))[0:16])
+	t.Log(To_md5(time.Now().Format(FormatTime)))
+	t.Log(To_md5(time.Now().Format(FormatDate)))
+	t.Log(To_md5(time.Now().Format(FormatDateTime)))
+	t.Log(To_md5("测试" + time.Now().Format(FormatDateTime)))
+	t.Log(To_md5(time.Now().Format(FormatDateTime)))
+	t.Log(To_md5(time.Now().Format(FormatDateTime))[0:16])
 }
 
 func TestOther(t *testing.T) {
 	u := &User{}
 	err := json.Unmarshal([]byte{}, u)
-	beego.Info(err)
+	t.Log(err)
 }
