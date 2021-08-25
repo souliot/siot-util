@@ -8,7 +8,7 @@ import (
 	"io"
 	"time"
 
-	jwt "github.com/dgrijalva/jwt-go"
+	jwt "github.com/golang-jwt/jwt"
 	"golang.org/x/crypto/scrypt"
 )
 
