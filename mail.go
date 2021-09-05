@@ -60,7 +60,7 @@ func (m *Mail) Send(msg *MailMessage, opts ...MessageOption) (err error) {
 		gm.SetHeader("Cc", ccers...)
 	}
 
-	// 设置抄送人
+	// 设置密送人
 	if len(msg.Bccers) > 0 {
 		bccers := make([]string, 0)
 		for bcc, alias := range msg.Bccers {
